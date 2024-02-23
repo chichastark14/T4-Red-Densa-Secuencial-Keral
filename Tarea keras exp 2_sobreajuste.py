@@ -1,5 +1,4 @@
-#Conserve el número de capas pero añadí más neuronas a la capa oculta, ahora siendo 100 neuronas y modifique el optimizador a Adam
-#La red neuronal obtuvo una eficiencia del 100% por ende mejoró con respecto a la original del primer commit
+#Provocamos sobreajuste añadiendo capas y neuronas a la red neuronal
 
 import tensorflow as tf
 import numpy as np
@@ -52,6 +51,8 @@ X_test_flat = X_test.reshape([X_test.shape[0], 784])
 model = Sequential()
 
 model.add(Dense(100, batch_input_shape=(None, 784)))
+model.add(Activation('sigmoid'))
+model.add(Dense(200))
 model.add(Activation('sigmoid'))
 model.add(Dense(100))
 model.add(Activation('sigmoid'))
